@@ -46,6 +46,10 @@ export default {
   build: {
   },
   
+  generate: {
+    dir: 'docs'
+  },
+  
   microcms: {
     options: {
       serviceDomain: process.env.SERVICE_DOMAIN,
