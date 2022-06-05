@@ -20,3 +20,13 @@ jobs:
         echo "API_KEY=${{ secrets.API_KEY }}" >> .env
         cat .env
     - run: yarn generate
+    - name: git setting
+      run: |
+        git config --local user.email "mgk.webcreate@gmail.com"
+        git config --local user.name "gkNorth"
+    - name: Commit files
+      run: |
+        git pull
+        git add .
+        git commit -m "change from cms"
+        git push origin master
