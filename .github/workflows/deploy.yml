@@ -9,15 +9,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - shell: bash
-      run: |
-        touch .env
-        echo "SERVICE_DOMAIN=${{ secrets.SERVICE_DOMAIN }}" >> .env
-        echo "API_KEY=${{ secrets.API_KEY }}" >> .env
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
         node-version: 14.x
-    - run: npm i yarn
     - run: yarn install
+    - run: |
+        touch .env
+        echo "SERVICE_DOMAIN=${{ secrets.SERVICE_DOMAIN }}" >> .env
+        echo "API_KEY=${{ secrets.API_KEY }}" >> .env
+        cat .env
     - run: yarn generate
