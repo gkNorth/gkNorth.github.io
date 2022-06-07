@@ -47,7 +47,8 @@ export default {
   },
   
   generate: {
-    dir: 'docs'
+    dir: 'docs',
+    fallback: true
   },
   
   microcms: {
